@@ -39,6 +39,21 @@ class Usuario {
     
      }
 
+     
+     public function verify(){
+        $bd = Database::getInstance();
+        return $bd->query("SELECT * FROM usuario WHERE email=:cor;",
+        [":cor"=>$this->email]);
+    } 
+
+    public static function getAllUsuario($nombreusuario){
+        $bd = Database::getInstance();
+        $bd->query("SELECT * FROM usuario WHERE nombreusuario='$nombreusuario';");
+    
+        
+        return $bd->getRow("usuario");
+    }
+
     // public function insert(){
     //     $bd = Database::getInstance();
     //     $bd->query("INSERT INTO usuario(email, nombre, password, usuario) VALUES ('pepe@pepee.com', 'e', 'pepee', 'juane');");

@@ -1,5 +1,5 @@
 <?php
-
+require_once "modelo/comic.php";
 class controllerComic{
    
   public function __construct(){}
@@ -11,7 +11,7 @@ class controllerComic{
         header("location: index.php");
       }
      
-    
+      $datos = Comic::getAllComics();
       require_once "vista/index.comic.php";
     }
 

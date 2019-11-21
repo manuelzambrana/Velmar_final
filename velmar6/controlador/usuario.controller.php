@@ -22,7 +22,7 @@ require_once "modelo/sesion.php" ;
                 $contrasena = $_GET["con"];
            
                 $db = Database::getInstance();
-                
+
                 $db->query("SELECT * FROM usuario WHERE email=:nom AND password=:con;",
                                 [":nom" => $correo,
                                  ":con" => $contrasena]);
@@ -58,19 +58,23 @@ require_once "modelo/sesion.php" ;
     {        
         
        
+        require_once "vista/create.usuario.php";
         if (isset($_GET["corr"])) {
             $usuario = new Usuario();
             $usuario->setEmail($_GET["corr"]);
             $usuario->setPassword($_GET["cont"]);
             $usuario->setNombre($_GET["nomb"]);
-            $usuario->setUsuario($_GET["usu"]);            
-            $usuario->insert();
-     
-            require_once "vista/create.usuario.php";          
+            $usuario->setUsuario($_GET["usu"]);
+            
+            if ($usuario->verify() == false) {
+                $usuario->insert();
+                header("location: index.php?mod=usuario&ope=index");
+            } else {
+                require_once "vista/create.usuario.php";
+                echo ("El nombre de usuario ya existe");
+            }
            
-        }else{
-            require_once "vista/create.usuario.php";
-        }
+        }    
     }
 
 

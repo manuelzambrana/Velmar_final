@@ -42,8 +42,7 @@ class Database {
         self::$prp = self::$pdo->prepare($sql) ;
         
         $flg = self::$prp->execute($params) ;
-        print_r($sql);
-
+        
         return ($flg) && (self::$prp->rowCount() > 0) ;
     }
 
