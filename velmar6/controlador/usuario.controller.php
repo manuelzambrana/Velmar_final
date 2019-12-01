@@ -30,11 +30,11 @@ require_once "modelo/sesion.php" ;
 
                                      
                     $resultado = $db->getRow();
-                    $this->sesion->init();
+                    // $this->sesion->init();
                    
                  
                     if ($resultado !== false) {
-                        if($correo !== "admin"){
+                        if($correo !== "admin@admin.com"){
                         $_SESSION["email"]=$correo;
                         header("Location: index.php?mod=comic&ope=index");
                         }else{
@@ -78,13 +78,87 @@ require_once "modelo/sesion.php" ;
     }
 
 
-    public function logout(){
+    public function logout(){        
         session_start();
         session_unset();
         session_destroy();
         require_once "vista/login.index.php";
     }
+
+    public function update()
+{
+
+    $sesion = session_start();
+    $sesionIniciada = $_SESSION["email"];
+    if (!isset($sesionIniciada)) {
+        header("location: index.php");
+    }
+    $datosUsuario = Usuario::getAllUsuario($sesionIniciada);
+
+    $id = $_GET["idc"];
+
+    if (!empty($sesionIniciada)) {
+
+        $tab = Usuario::getAllUsuario($sesionIniciada);
+        if (isset($_GET["cor"])) {
+
+            $usuario = Usuario::getUsuarioByCorreo($_GET["cor"]) ?? "";
+       
+         
+
+            if ($usuario != "") {
+
+                if ($usuario->verify() == false) {
+                    echo "aqui";
+                    $tab = Usuario::getAllUsuario($sesionIniciada);
+                    $tab->setEmail($_GET["cor"]);
+                    $tab->update($_GET["cor"], $_GET["idc"]);
+                    session_unset();
+                    session_destroy();
+                    header("location: index.php");
+                } else {
+                    $correo = $tab->getEmail();
+                    require_once "vista/modificar.usuario.php";
+                    echo "El nombre de usuario ya existe";
+                }
+            } else { 
+                
+             
+                $tab = Usuario::getAllUsuario($sesionIniciada);
+                $tab->setEmail($_GET["cor"]);
+                $tab->update($_GET["cor"], $_GET["idc"]);
+                session_unset();
+                session_destroy();
+                header("location: index.php");
+                
+            
+            }
+        } else {
+            $correo = $tab->getEmail();
+            require_once "vista/modificar.usuario.php";
+        }
+    }
+} //funcion
+
+
+public function indexUsuario()
+{
+
+    $sesion = session_start();
+    if (!isset($_SESSION["email"])) {
+        header("location: index.php");
+    }
+
+    $datosUsuario = Usuario::getAllUsuario($_SESSION["email"]);
+    require_once "vista/index.usuario.php";
 }
     
+
+
+
+
+}
+
+
 
 ?>

@@ -1,20 +1,19 @@
 <?php  
 
-if(isset($_SESSION["email"])){
+if(isset($_SESSION["email2"])){
     
-    $nombre = $_SESSION["email"];
-    if ($nombre !== "admin"){
-        header("Location: index.php?mod=comic&ope=index");
+    $nombre = $_SESSION["email2"];
+    if ($nombre !== "admin@admin.com"){
+       
     }else{
-        header("Location: index.php?mod=comic&ope=indexadmin");
+      require_once "vista/delete.index.php";
     }
 }else{
-    require_once "vista/login.index.php";
+    require_once "vista/admin.index.php";
 }
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,23 +93,22 @@ if(isset($_SESSION["email"])){
       <form class="form-signin" action="index.php" method="GET">
 
 
-        <h2 class="form-signin-heading text-center">Please sign in</h2>
+        <h2 class="form-signin-heading text-center">Please sign in admin</h2>
 
 
-        <input id="mod" name="mod" type="hidden" value="usuario">
-        <input id="ope" name="ope" type="hidden" value="index">
+        <input id="mod" name="mod" type="hidden" value="admin">
+        <input id="ope" name="ope" type="hidden" value="index2">
 
-        <input class="form-control" id="nom" name="nom" type="text" value="" required placeholder="Usuario">
+        <input class="form-control" id="nom" name="nom" type="text" value=""  method="POST" required placeholder="Usuario">
         <br>
 
-        <input class="form-control" id="con" name="con" type="password" value="" required placeholder="Password">
+        <input class="form-control" id="con" name="con" type="password" value=""  method="POST" required placeholder="Password">
         <br>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 
 
       </form>
-      <a href="index.php?mod=usuario&ope=create"><button class="btn btn-lg btn-primary btn-block" id="bot" type="submit">Registrarse</button></a>
 </div>
 </div>
 

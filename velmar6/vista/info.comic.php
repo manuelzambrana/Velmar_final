@@ -23,6 +23,16 @@
 </head>
 
 <body>
+<?php
+ 
+  $imagen=$datos->getImagen();
+  $titulo=$datos->getNomPro();
+  $descripcion=$datos->getDescripcion();
+  $id=$datos->getIdProducto();
+  
+
+        
+        ?>
 
   <nav class="navbar navbar-default">
     <div class="container">
@@ -44,35 +54,51 @@
 
     </div>
   </nav>
-
+ 
   <div class="container">
-    <?php
-        foreach($datos as $item){
-    ?>
-
+ 
     <div class="col s12 m7 tarjeta">
-      <a href="index.php?mod=comic&ope=comic&idc=<?=  $item->getIdProducto(); ?>">
-        <h2 class="header" style="color:saddlebrown"><?= $item->getNomPro();    ?></h2>
-      </a>
+     
+        <h2 class="header" style="color:saddlebrown"><?php echo $titulo; ?> </h2>
+      
       <div class="card horizontal">
         <div class="card-image">
-          <img src=<?=  $item->getImagen(); ?>>
+          <img src=<?php echo $imagen ?>>
         </div>
         <div class="card-stacked">
           <div class="card-content">
-            <p class="descripcion"><?=  $item->getDescripcion();   ?></p>
+            <p class="descripcion"><?php echo $descripcion; ?></p>
 
 
           </div>
+          <form class="form-signin"  action="index.php" method="GET">
+<h2 class="form-signin-heading text-center">Please sign up</h2>
 
+        <input id="mod" name="mod" type="hidden" value="comic">
+        <input id="ope" name="ope" type="hidden" value="create">
+        <input id="idc" name="idc" type="hidden" value="<?php echo $id; ?>">
+
+        <label for="com" class="sr-only">comentario</label>
+        <input class="form-control" id="com" name="com" type="text" value="" required placeholder="Comentario" />
+        <br>       
+       <br>
+        <button class="btn btn-lg btn-primary btn-block" id="bot" type="submit">Registrarse</button>
+        </form>
           <?php
-        }
+        foreach($comentarios as $item){
+    ?>      
+            
+            <p> <?= $item->getNombre(); ?></p>
+            <p> <?= $item->getComentario(); ?></p>
+            <?php
+       }
     ?>
 
         </div>
       </div>
     </div>
   </div>
+  
 
   <!-- Jquery  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

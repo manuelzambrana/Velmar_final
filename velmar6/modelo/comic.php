@@ -7,6 +7,8 @@ class Comic {
     private $nomPro ;
     private $Descripcion ;
     private $imagen ;
+    private $Comentario;
+    private $nombre;
    
 
     private $nombreusuario ; 
@@ -17,6 +19,8 @@ class Comic {
     public function setNomPro($dta)          {$this->nomPro = $dta;}
     public function setDescripcion($dta)         {$this->Descripcion = $dta;}
     public function setImagen($dta)     {$this->imagen = $dta;}
+    public function setComentario($dta)     {$this->Comentario = $dta;}
+    public function setNombre($dta)     {$this->nombre = $dta;}
  
 
 
@@ -25,7 +29,9 @@ class Comic {
     public function getIdProducto()            {return $this->idProducto;}
     public function getNomPro()              {return $this->nomPro;}
     public function getDescripcion()             {return $this->Descripcion;}
-    public function getImagen()         {return $this->imagen;}    
+    public function getImagen()         {return $this->imagen;}
+    public function getComentario()         {return $this->Comentario;}
+    public function getNombre()         {return $this->nombre;}        
 
 
 
@@ -45,17 +51,6 @@ class Comic {
         }
         return $datos;
     }
-
-    //INSERTAR CANCIONES EN LA BBDD 
-
-    // public function insert(){
-    //     $bd = Database::getInstance();
-    //     $bd->query("INSERT INTO canciones(artista, ncancion, idGen, album) VALUES (:art, :nca, :gen, :alb);",
-    //     [":art"=>$this->artista,
-    //      ":gen"=>$this->idGen,
-    //      ":alb"=>$this->album,
-    //      ":nca"=>$this->ncancion]);
-    // }
 
     //BORRAR CANCIONES EN LA BBDD 
 
@@ -84,13 +79,33 @@ class Comic {
         
     // }
 
-    // public static function getCancionn($id){
-    //     $db = Database::getInstance() ;
-    //     $db->query("SELECT * FROM canciones WHERE idcancion=:idc ;",
-    //                  [":idc"=>$id]) ;
+     public static function getComic($id){
+         $db = Database::getInstance() ;
+         $db->query("SELECT * FROM productos WHERE idProducto=$id ;");
 
-    //     return $db->getRow("cancion") ;
-    // }
+         return $db->getRow("Comic") ;
+     }
+
+     public static function getComentarios($id){
+        $bd = Database::getInstance();
+        $bd->query("SELECT * from comentario C inner join productos P ON P.idProducto=C.idProducto where C.idProducto = $id");
+        
+        $comentarios = [];
+
+        while($item = $bd->getRow("Comic")){
+            array_push($comentarios,$item);
+        }
+        return $comentarios;
+
+
+     }
+
+       public function insert($comentario,$idProducto,$nombre){
+        $bd = Database::getInstance();
+        $bd->query("INSERT INTO comentario (Comentario,idProducto,nombre) VALUES ('$comentario','$idProducto','$nombre');");
+      
+     }
+
 
 
 }

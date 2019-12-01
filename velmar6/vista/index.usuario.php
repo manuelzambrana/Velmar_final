@@ -1,29 +1,17 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
-  <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usuario</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <style>
-    .descripcion {
-      position: relative;
-      top: -305px;
-      left: 225px;
-      text-align: justify;
-      width: 745px;
-      height: 30px;
-      font-size: 17px;
-      font-family: 'Gentium Book Basic', serif;
-    }
-  </style>
 </head>
-
 <body>
-
+    
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -45,35 +33,34 @@
     </div>
   </nav>
 
-  <div class="container">
-    <?php
-        foreach($datos as $item){
-    ?>
+    <!---->
+    <div class="banner">
+    <div style="margin: auto;width:70%;text-align:center"></div>
 
-    <div class="col s12 m7 tarjeta">
-      <a href="index.php?mod=comic&ope=comic&idc=<?=  $item->getIdProducto(); ?>">
-        <h2 class="header" style="color:saddlebrown"><?= $item->getNomPro();    ?></h2>
-      </a>
-      <div class="card horizontal">
-        <div class="card-image">
-          <img src=<?=  $item->getImagen(); ?>>
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <p class="descripcion"><?=  $item->getDescripcion();   ?></p>
-
-
-          </div>
-
-          <?php
-        }
-    ?>
-
-        </div>
-      </div>
+    <div style="margin: auto;width:70%;text-align:center"></div>
     </div>
-  </div>
+    <!---->
 
+    <div class="login-page">
+    <div class="form">  
+
+    <h1 class="titulo">Mi perfil</h1>
+
+    <strong>Correo:</strong>      <?=$datosUsuario->getEmail();?>  <br>
+    <strong>Nombre Usuario:</strong>      <?=$datosUsuario->getUsuario();?> <br>
+    <strong>Nombre:</strong>      <?=$datosUsuario->getNombre();?> <br>
+
+    <br>
+
+    <a class="btn btn-secondary btn-sm btn-sm card-title" href="index.php?mod=usuario&ope=update&idc=<?=$datosUsuario->getEmail();?>">Editar Perfil</a>
+    <div style="margin: auto;width:70%;text-align:center">
+    <a class="btn btn-primary btn-sm card-title" href="index.php?mod=comic&ope=index">Volver atrás</a>
+    </div>
+
+    </div>
+    </div>
+
+</div>
   <!-- Jquery  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -82,5 +69,4 @@
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
   </script>
 </body>
-
 </html>

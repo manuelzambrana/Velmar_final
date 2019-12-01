@@ -40,7 +40,8 @@ class Database {
     public function query($sql, $params=[]) 
     {
         self::$prp = self::$pdo->prepare($sql) ;
-        
+     
+       
         $flg = self::$prp->execute($params) ;
         
         return ($flg) && (self::$prp->rowCount() > 0) ;
