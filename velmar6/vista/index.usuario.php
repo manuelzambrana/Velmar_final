@@ -15,7 +15,7 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">VelmarComics</a>
+        <a class="navbar-brand" href="index.php?mod=comic&ope=index">VelmarComics</a>
       </div>
 
       <ul class="nav navbar-nav navbar-right">
@@ -47,7 +47,7 @@
     <h1 class="titulo">Mi perfil</h1>
 
     <strong>Correo:</strong>      <?=$datosUsuario->getEmail();?>  <br>
-    <strong>Nombre Usuario:</strong>      <?=$datosUsuario->getUsuario();?> <br>
+    <strong>Usuario:</strong>      <?=$datosUsuario->getUsuario();?> <br>
     <strong>Nombre:</strong>      <?=$datosUsuario->getNombre();?> <br>
 
     <br>

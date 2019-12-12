@@ -92,8 +92,7 @@ require_once "modelo/sesion.php" ;
 
     public function logout(){
         session_start();
-        session_unset();
-        session_destroy();
+        unset($_SESSION["email2"]);
         require_once "vista/admin.index.php";
     }
 

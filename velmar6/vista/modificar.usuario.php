@@ -8,6 +8,26 @@
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.php?mod=comic&ope=index">VelmarComics</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false"><?=  $_SESSION["email"] ?> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><a class="btn btn-secondary btn-sm btn-sm card-title" href="index.php?mod=usuario&ope=indexUsuario">Mi Perfil</a></li>
+            <li><a class="btn btn-secondary btn-sm btn-sm card-title" href="index.php?mod=usuario&ope=logout">Cerrar sesión</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
 
 	<div class="login-page">
     <div class="form">
@@ -30,8 +50,6 @@
 
 	</form>
 
-	</div> <!-- login -->
-	</div> <!-- form -->
 
 </body>
 </html>

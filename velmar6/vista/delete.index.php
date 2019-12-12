@@ -276,7 +276,7 @@ $(document).ready(function(){
             aria-expanded="false"><?=  $_SESSION["email2"] ?> <span class="caret"></span></a>
                      
                     </div>
-                    <a class="btn btn-danger logout" href="index.php?mod=admin&ope=logout" role="button">logout</a>
+                    <a class="btn btn-danger logout" href="index.php?mod=admin&ope=logout" role="button">Cerrar Sesion</a>
 
                     
                 </div>
@@ -293,8 +293,8 @@ $(document).ready(function(){
                        
                         <th>Usuario</th>
                         <th>Nombre</th>
-                        <th>Email</th>                        
-                        <th>Actions</th>
+                        <th>Correo</th>                        
+                        <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>

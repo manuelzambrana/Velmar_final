@@ -19,6 +19,8 @@ if(isset($_SESSION["email"])){
 <html lang="en">
 
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../js/main.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
@@ -26,6 +28,7 @@ if(isset($_SESSION["email"])){
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos/estilos.css">
 
   <!-- Custom styles for this template -->
   <style type="text/css">
@@ -78,9 +81,14 @@ if(isset($_SESSION["email"])){
 
     button{
       max-width: 300px;
-      padding: 15px;
+      padding: 50px;
       margin: 0 auto;
+      
     }
+    .btn-block {
+    display: block;
+    width: 240px;
+}
   </style>
 
 
@@ -89,30 +97,31 @@ if(isset($_SESSION["email"])){
 <body>
 
 
+
   <div class="login-page">
     <div class="form">
-      <form class="form-signin" action="index.php" method="GET">
+      <form class="form-signin" action="index.php" method="GET" id="formlg">
 
 
-        <h2 class="form-signin-heading text-center">Please sign in</h2>
+        <h2 class="form-signin-heading text-center">Inicio De Sesión</h2>
 
 
         <input id="mod" name="mod" type="hidden" value="usuario">
         <input id="ope" name="ope" type="hidden" value="index">
 
-        <input class="form-control" id="nom" name="nom" type="text" value="" required placeholder="Usuario">
+        <input class="form-control" id="nom" name="nom" type="text" value="" required placeholder="Correo">
         <br>
 
-        <input class="form-control" id="con" name="con" type="password" value="" required placeholder="Password">
+        <input class="form-control" id="con" name="con" type="password" value="" required placeholder="Contraseña">
         <br>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 
 
+      
       </form>
       <a href="index.php?mod=usuario&ope=create"><button class="btn btn-lg btn-primary btn-block" id="bot" type="submit">Registrarse</button></a>
-</div>
-</div>
+
 
 
 </body>

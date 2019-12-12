@@ -6,7 +6,13 @@
     <title>Login</title>
 
     <!-- Bootstrap core CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../js/main.js"></script>
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos/estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
 
     <!-- Custom styles for this template -->
     <style type="text/css">
@@ -55,8 +61,10 @@
   </head>
 
 <body>
-<form class="form-signin"  action="index.php" method="GET">
-<h2 class="form-signin-heading text-center">Please sign up</h2>
+<div class="form">
+
+<form class="form-signin"  action="index.php" method="GET" id="signupForm">
+<h2 class="form-signin-heading text-center">Registro</h2>
 
         <input id="mod" name="mod" type="hidden" value="usuario">
         <input id="ope" name="ope" type="hidden" value="create">
@@ -64,7 +72,7 @@
         <input class="form-control" id="nomb" name="nomb" type="text" value="" required placeholder="Nombre" />
         <br>
 
-        <label for="inputEmail" class="sr-only">Email address</label>
+        <label for="corr" class="sr-only">Email address</label>
 
         <input class="form-control" id="corr" name="corr" type="email" value="" required placeholder="Correo">
         <br>
@@ -88,8 +96,7 @@
         
 
         </form>
-      
-</div> 
+
 
 
     

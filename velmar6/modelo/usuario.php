@@ -58,6 +58,7 @@ class Usuario {
     public function update($correo, $sesion){
         $db = Database::getInstance() ;
         $db->query("UPDATE usuario SET email='$correo' WHERE email='$sesion';") ;
+        $db->query("UPDATE comentario SET nombre='$correo' where nombre='$sesion';");
         
 
     }

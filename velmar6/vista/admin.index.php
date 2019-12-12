@@ -23,6 +23,8 @@ if(isset($_SESSION["email2"])){
   <title>Login</title>
 
   <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="estilos/estilos.css">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -93,24 +95,23 @@ if(isset($_SESSION["email2"])){
       <form class="form-signin" action="index.php" method="GET">
 
 
-        <h2 class="form-signin-heading text-center">Please sign in admin</h2>
+        <h2 class="form-signin-heading text-center">Admin </h2>
 
 
         <input id="mod" name="mod" type="hidden" value="admin">
         <input id="ope" name="ope" type="hidden" value="index2">
 
-        <input class="form-control" id="nom" name="nom" type="text" value=""  method="POST" required placeholder="Usuario">
+        <input class="form-control" id="nom" name="nom" type="text" value=""  method="POST" required placeholder="Correo">
         <br>
 
-        <input class="form-control" id="con" name="con" type="password" value=""  method="POST" required placeholder="Password">
+        <input class="form-control" id="con" name="con" type="password" value=""  method="POST" required placeholder="Contraseña">
         <br>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 
 
       </form>
-</div>
-</div>
+
 
 
 </body>

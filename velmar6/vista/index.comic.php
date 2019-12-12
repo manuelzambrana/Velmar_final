@@ -9,16 +9,40 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <style>
-    .descripcion {
-      position: relative;
-      top: -305px;
-      left: 225px;
-      text-align: justify;
-      width: 745px;
-      height: 30px;
-      font-size: 17px;
-      font-family: 'Gentium Book Basic', serif;
+    html{
+      scroll-behavior: smooth;
     }
+    .descripcion{
+  padding-left: 10px;
+  margin-top: 20px;
+  text-align: justify;
+  font-size: 17px;
+  font-family: 'Gentium Book Basic', serif;
+}
+.card-image{
+  display: flex;
+}
+#arriba{
+  position: fixed;
+  bottom: 25px;
+  z-index: 45;
+  cursor: pointer;
+  text-decoration: none;
+  right: 20px;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 760px) {
+  .card-image{
+  display: block;
+}
+img{
+  display: block;
+  margin: auto;
+}
+
+}
+
   </style>
 </head>
 
@@ -27,7 +51,7 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">VelmarComics</a>
+        <a class="navbar-brand" href="index.php?mod=comic&ope=index">VelmarComics</a>
       </div>
 
       <ul class="nav navbar-nav navbar-right">
@@ -57,17 +81,15 @@
       <div class="card horizontal">
         <div class="card-image">
           <img src=<?=  $item->getImagen(); ?>>
+          <p class="descripcion"><?=  $item->getDescripcion();   ?></p>
         </div>
         <div class="card-stacked">
-          <div class="card-content">
-            <p class="descripcion"><?=  $item->getDescripcion();   ?></p>
-
-
-          </div>
+        
 
           <?php
         }
     ?>
+    <a href="#" id="arriba">arriba</a>
 
         </div>
       </div>

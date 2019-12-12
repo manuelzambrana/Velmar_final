@@ -71,7 +71,7 @@ require_once "modelo/sesion.php" ;
                 header("location: index.php?mod=usuario&ope=index");
             } else {
                 require_once "vista/create.usuario.php";
-                echo ("El nombre de usuario ya existe");
+                echo ("El correo ya existe, introduzca uno diferente");
             }
            
         }    
@@ -80,8 +80,7 @@ require_once "modelo/sesion.php" ;
 
     public function logout(){        
         session_start();
-        session_unset();
-        session_destroy();
+        unset($_SESSION["email"]);
         require_once "vista/login.index.php";
     }
 
