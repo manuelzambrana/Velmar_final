@@ -52,32 +52,7 @@ class Comic {
         return $datos;
     }
 
-    //BORRAR CANCIONES EN LA BBDD 
 
-    // public function delete(){
-    //     $db = Database::getInstance() ;
-    //     $db->query("DELETE FROM canciones WHERE idcancion=:idcan ;",
-    //     [":idcan"=>$this->idcancion]) ;				   
-    //     }
-        
-
-    // public static function deleteCancion($id){
-    //     $db = Database::getInstance() ;
-    //     $db->query("DELETE FROM canciones WHERE idcancion=:idcan ;",
-    //     [":idcan"=>$id]) ;
-    //     }
-
-    // //ACTUALIZAR CANCIONES EN LA BBDD 
-    
-    // public function update(){
-    //     $db = Database::getInstance() ;
-    //     $db->query("UPDATE canciones SET ncancion=:nca, idGen=:idGen, album=:alb WHERE idcancion=:idc ;",
-    //                     [":nca"=>$this->ncancion,
-    //                     ":idGen"=>$this->idGen,
-    //                     ":alb"=>$this->album,
-    //                     ":idc"=>$this->idcancion]) ;
-        
-    // }
 
      public static function getComic($id){
          $db = Database::getInstance() ;

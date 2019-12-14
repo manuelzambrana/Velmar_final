@@ -44,7 +44,7 @@ require_once "modelo/sesion.php" ;
                         
                     }else{
                         require_once "vista/login.index.php";
-                        echo "El nombre o la contraseña no es correcta";
+                        echo "El correo o la contraseña no es correcta";
                     
                     }
                 } else{

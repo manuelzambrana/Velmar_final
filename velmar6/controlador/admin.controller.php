@@ -55,7 +55,7 @@ require_once "modelo/sesion.php" ;
                     }else{
                         if(!isset($_SESSION["email2"])){
                             require_once "vista/admin.index.php";
-                            echo "El nombre o la contraseña no es correcta";
+                            echo "El correo o la contraseña no es correcta";
                             }
                         
                     
