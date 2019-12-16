@@ -2,7 +2,7 @@ Enlace para VelmarComics: http://velmar.epizy.com/?i=1
 
 # Tecnologías utilizadas:
 
-PHP7
+PHP7 (MVC, PDO)
 BOOSTRAP
 HTML5
 CSS3
