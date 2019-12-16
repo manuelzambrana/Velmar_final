@@ -1,5 +1,11 @@
-# Velmar_final
 Enlace para VelmarComics: http://velmar.epizy.com/?i=1
+
+# Tecnologías utilizadas:
+
+PHP7
+BOOSTRAP
+HTML5
+CSS3
 
 # VelmarComics
 
@@ -28,7 +34,7 @@ Comentarios del usuario, pagina donde podemos ver las opiniones del usuario
 
 Información del perfil de nuestro usuario y también podemos editar nuestro correo.
 
-<img src="Imagenes/info.png">
+<img src="Imagenes/perfil.png">
 
 <img src="Imagenes/editar.png">
 
