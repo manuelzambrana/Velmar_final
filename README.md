@@ -6,6 +6,7 @@ PHP7 (MVC, PDO)
 BOOSTRAP
 HTML5
 CSS3
+Api de Marvel
 
 # VelmarComics
 
